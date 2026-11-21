@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes tâches</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main>
+        <h1>Mes tâches</h1>
+
+        <form action="{{ url_for('ajouter') }}" method="post">
+            <input type="text" name="texte" placeholder="Nouvelle tâche..." required>
+            <button type="submit">Ajouter</button>
+        </form>
+
+        <ul>
+            {% for tache in taches %}
+            <li>
+                <span>{{ tache }}</span>
+                <form action="{{ url_for('supprimer', index=loop.index0) }}" method="post">
+                    <button type="submit" class="suppr">✕</button>
+                </form>
+            </li>
+            {% else %}
+            <li class="vide">Aucune tâche pour le moment.</li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>
