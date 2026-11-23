@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -e
 
 NOM_IMAGE="monapp"
 NOM_CONTENEUR="monapp"
 PORT_HOTE=8090
-PORT_CONTENEUR=5000
+PORT_CONTENEUR=7000
 
 # Se placer dans le dossier du script (là où se trouve le Dockerfile)
 cd "$(dirname "$0")"
